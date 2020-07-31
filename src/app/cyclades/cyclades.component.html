@@ -1,0 +1,26 @@
+<ion-item>
+  <ion-label>Number of Players: </ion-label>
+  <ion-input [(ngModel)]="numberOfPlayers" type="number"></ion-input>
+</ion-item>
+
+<ion-list>
+  <ion-radio-group value="classic">
+    <ion-list-header>
+      <ion-label>Type of</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Classic</ion-label>
+      <ion-radio slot="start" value="classic"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Titans</ion-label>
+      <ion-radio slot="start" value="titans"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+</ion-list>
+
+<ion-item *ngIf="numberOfPlayers">
+  <app-cyclades-classic [numberOfPlayers]="numberOfPlayers"></app-cyclades-classic>
+</ion-item>

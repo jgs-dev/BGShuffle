@@ -8,11 +8,14 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { CycladesComponent } from './cyclades/cyclades.component';
+import { FormsModule } from "@angular/forms"
+import { CycladesClassicComponent } from './cyclades-classic/cyclades-classic.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, CycladesComponent, CycladesClassicComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule],
   providers: [
     StatusBar,
     SplashScreen,
@@ -20,4 +23,4 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
