@@ -43,6 +43,7 @@ export class CycladesClassicComponent implements OnInit {
   shuffle() {
 
     this.sources = this.classicService.shuffleController(this.numberOfPlayers).map(god => god.src)
+
     this.animation = this.animationCtrl.create()
       .addElement(document.querySelectorAll('ion-img'))
       .duration(1500)
@@ -52,7 +53,7 @@ export class CycladesClassicComponent implements OnInit {
 
     this.animation.play();
   }
-
+  
   getBack() {
     this.location.back()
     this.turns.reset()
