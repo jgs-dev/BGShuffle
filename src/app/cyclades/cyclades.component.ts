@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -10,11 +11,15 @@ export class CycladesComponent implements OnInit {
 
   numberOfPlayers: number
 
-  constructor() { }
+  constructor(private location: Location) { }
 
-  ngOnInit() {
+  ngOnInit() { }
 
-    console.log(Boolean(this.numberOfPlayers))
+  /**
+   * @method getBack: return to the "page" where the user was before
+   */
+  getBack():void{
+    this.location.back()
   }
 
 }
