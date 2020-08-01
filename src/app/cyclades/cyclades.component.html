@@ -1,14 +1,20 @@
-<ion-content>
-  <ion-list-header>
-    <ion-button shape="round" size="medium" (click)="getBack()">Back</ion-button>
-    <ion-title position="end">Shuffle of Gods</ion-title>
-  </ion-list-header>
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button color="danger" defaultHref="/home"></ion-back-button>
+  </ion-buttons>
+  <ion-title>Shuffle of Gods</ion-title>
+</ion-toolbar>
 
-  <ion-item>
-    <ion-label>Number of Players: </ion-label>
-    <ion-input [(ngModel)]="numberOfPlayers" type="number" placeholder="3 to 5 players"></ion-input>
-  </ion-item>
+<ion-content>
+
   <ion-list>
+
+
+    <ion-item>
+      <ion-label>Number of Players: </ion-label>
+      <ion-input [(ngModel)]="numberOfPlayers" type="number" placeholder="3 to 5 players"></ion-input>
+    </ion-item>
+
     <ion-radio-group value="classic">
       <ion-list-header>
         <ion-label>Type of</ion-label>
@@ -24,10 +30,8 @@
         <ion-radio slot="start" value="titans"></ion-radio>
       </ion-item>
     </ion-radio-group>
-  </ion-list>
 
-  <ion-item *ngIf="numberOfPlayers">
-    <ion-button expand="full" shape="round" routerLink="cyclades-classic/{{numberOfPlayers}}">Start Shuffle</ion-button>
-  </ion-item>
+    <ion-button shape = "round" expand="full" routerLink="/cyclades-classic/{{numberOfPlayers}}">Shuffle</ion-button>
+  </ion-list>
 
 </ion-content>
