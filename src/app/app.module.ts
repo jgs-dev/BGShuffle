@@ -12,9 +12,10 @@ import { CycladesComponent } from './cyclades/cyclades.component';
 import { FormsModule } from "@angular/forms"
 import { CycladesClassicComponent } from './cyclades-classic/cyclades-classic.component';
 import { HomePage } from './home/home.page';
+import { CycladesTitansComponent } from './cyclades-titans/cyclades-titans.component';
 
 @NgModule({
-  declarations: [AppComponent, CycladesComponent, CycladesClassicComponent, HomePage],
+  declarations: [AppComponent, CycladesComponent, CycladesClassicComponent, HomePage, CycladesTitansComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule],
   providers: [

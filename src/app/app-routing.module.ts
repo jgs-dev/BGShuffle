@@ -6,7 +6,7 @@ const routes: Routes = [
   { path: "home", loadChildren: "./home/home.module#HomePageModule"},
   { path: "cyclades", loadChildren: './cyclades/cyclades.module#CycladesModule' },
   { path: "cyclades-classic/:numberOfPlayers", loadChildren: './cyclades-classic/cyclades-classic.module#CycladesClassicModule' },
-  
+  { path: "cyclades-titans/:numberOfPlayers", loadChildren: './cyclades-titans/cyclades-titans.module#CycladesTitansModule' },
 
 ];
 

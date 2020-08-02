@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="/cyclades"></ion-back-button>
+          <ion-title>Turn {{turns.getTurn()}}</ion-title>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-list *ngIf="sources">
+  <ion-img [src]="sources[0]"></ion-img>
+  <ion-img [src]="sources[1]"></ion-img>
+  <ion-img [src]="sources[2]"></ion-img>
+  <ion-img [src]="sources[3]"></ion-img>
+  <ion-img [src]="sources[4]"></ion-img>
+</ion-list>
+
+<ion-button shape="round" expand="full" (click)="shuffle()">Shuffle</ion-button>

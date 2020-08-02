@@ -53,8 +53,8 @@ export class CycladesClassicComponent implements OnInit {
 
     this.animation.play();
   }
-  
-  ionViewDidLeave(){
+
+  ionViewDidLeave() {
     this.turns.reset()
   }
 }
