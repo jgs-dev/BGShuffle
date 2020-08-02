@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 
-
 @Component({
   selector: 'app-cyclades',
   templateUrl: './cyclades.component.html',
@@ -18,7 +17,7 @@ export class CycladesComponent implements OnInit {
   /**
    * @method getBack: return to the "page" where the user was before
    */
-  getBack():void{
+  getBack(): void {
     this.location.back()
   }
 

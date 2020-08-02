@@ -1,37 +1,35 @@
-<ion-toolbar>
-  <ion-buttons slot="start">
-    <ion-back-button color="danger" defaultHref="/home"></ion-back-button>
-  </ion-buttons>
-  <ion-title>Shuffle of Gods</ion-title>
-</ion-toolbar>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="danger" defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Shuffle of Gods</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-<ion-content>
+<ion-content fullscreen>
 
   <ion-list>
 
-
     <ion-item>
       <ion-label>Number of Players: </ion-label>
-      <ion-input [(ngModel)]="numberOfPlayers" type="number" placeholder="3 to 5 players"></ion-input>
+      <ion-input [(ngModel)]="numberOfPlayers" type="number"></ion-input>
     </ion-item>
 
-    <ion-radio-group value="classic">
-      <ion-list-header>
-        <ion-label>Type of</ion-label>
-      </ion-list-header>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button [disabled]="!numberOfPlayers" shape="round" expand="full"
+            routerLink="/cyclades-titans/{{numberOfPlayers}}">Titans</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button [disabled]="!numberOfPlayers" shape="round" expand="full"
+            routerLink="/cyclades-classic/{{numberOfPlayers}}">Classic
+          </ion-button>
+        </ion-col>
+      </ion-row>
 
-      <ion-item>
-        <ion-label>Classic</ion-label>
-        <ion-radio slot="start" value="classic"></ion-radio>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>Titans</ion-label>
-        <ion-radio slot="start" value="titans"></ion-radio>
-      </ion-item>
-    </ion-radio-group>
-
-    <ion-button shape = "round" expand="full" routerLink="/cyclades-titans/{{numberOfPlayers}}">Shuffle</ion-button>
+    </ion-grid>
   </ion-list>
 
 </ion-content>
