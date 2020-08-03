@@ -1,5 +1,7 @@
 {
   "name": "BGShuffle",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

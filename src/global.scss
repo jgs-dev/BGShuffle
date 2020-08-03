@@ -27,5 +27,15 @@
 
 
 .background {
-    --background: #fff url("./assets/img/table-background.jpg") no-repeat center center / cover;
+    // --background: #fff url("./assets/img/table-background.jpg") no-repeat center center / cover;
+    --background: #ececec;
+  }
+
+.components-background {
+  --background: #f9f9f9;
+}
+
+.toolbar {
+  --background: transparent;
+  --ion-color-base: transparent !important;
   }
