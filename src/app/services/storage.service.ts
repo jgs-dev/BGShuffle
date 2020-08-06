@@ -30,8 +30,7 @@ export class StorageService {
    * @param key key were the value is saved
    */
   getData(key: string): Promise<any> {
-
-    return this.storage.get(key).then()
+    return this.storage.get(key)
   }
 
   /**

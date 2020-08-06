@@ -66,17 +66,16 @@ export class TitansService {
 
   shuffleController(players: number): God[] {
 
-    /**
-     *When playing with 4 players, the last of the 4 Gods will be placed face-down. 
-     It will not be available for this cycle. During the following cycle, you will place 
-     this God in the first space, face-up, and shuffle the other 3.
-     Once again, the God placed in 4th place will be face-down and will become first God 
-     during the following cycle.
+    // 6 Players:
+    // Shuffle the 5 large God tiles and place them randomly on the 5 empty spaces above Apollo.
 
-      When playing with 3 players, the first two Gods will be placed face-up and the last 
-      two face-down. During the next cycle, the two Gods which were face-down will be used. 
-      On the cycle following that, the 4 Gods will be shuffled again to make two new random pairs. 
-     */
+    // 5 Players:
+    // The last of the 5 Gods will be placed face-down. It will not be available for this cycle. During the following cycle, place this God in the first space, face-up, and shuffle the other 4. Once again, the God placed in 5th place will be face-down and will become the first God during the following cycle.
+
+    // 4 Players:
+    // The last 2 Gods will be placed face-down and will become the first two Gods during the next cycle.
+    // 3 Players:
+    // The last 3 Gods are placed face-down. Two of them will be randomly placed in the first two spaces during the next cycle.
 
 
     switch (players) {
@@ -140,6 +139,14 @@ export class TitansService {
 
         return auxGods;
     }
+  }
+
+  /**
+  * @method setGods called to load the positions of a state of game
+  * @param gods the new set of gods 
+  */
+  setGods(gods: God[]) {
+    this.gods = gods
   }
 
 }

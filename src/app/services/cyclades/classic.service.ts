@@ -39,13 +39,13 @@ export class ClassicService {
    */
   loadData(): Promise<number> {
     return this.storageService.getData(KEY).then((value) => {
-      
-      if(value){
+
+      if (value) {
         return +value
-      }else{
+      } else {
         return 0
       }
-      
+
     })
   }
 
@@ -101,7 +101,6 @@ export class ClassicService {
         return auxGods;
       case 3:
         if (this.turns.getTurn() % 2) {
-
           let auxGods = [...this.gods];
           this.gods[0] = auxGods[3];
           this.gods[1] = auxGods[2];
@@ -123,6 +122,14 @@ export class ClassicService {
         }
 
     }
+  }
+
+  /**
+   * @method setGods called to load the positions of a state of game
+   * @param gods the new set of gods 
+   */
+  setGods(gods: God[]) {
+    this.gods = gods
   }
 
 }

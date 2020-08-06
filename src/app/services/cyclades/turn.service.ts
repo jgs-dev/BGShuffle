@@ -24,6 +24,14 @@ export class TurnService {
   }
 
   /**
+   * @method setTurn called when a game state is loaded
+   * @param turn the new counter of the turns
+   */
+  setTurn(turn: number) {
+    this.counter = turn
+  }
+
+  /**
    * @method getTurn: return the counter
    */
   getTurn(): number {
