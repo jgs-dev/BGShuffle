@@ -24,15 +24,21 @@ export class CycladesTitansComponent implements OnInit {
   constructor(private titansService: TitansService, private animationCtrl: AnimationController, public turns: TurnService,
     private route: ActivatedRoute, private router: Router, private alertCtrl: AlertController, private stateService: StateService) { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  ionViewDidEnter() {
     this.numberOfPlayers = +this.route.snapshot.paramMap.get("numberOfPlayers")
-    this.turn0()
+    if (this.numberOfPlayers == -1) {
+      this.loadState()
+    } else {
+      this.turn0()
+    }
   }
 
-   /**
-   * @method turn0 displays all of the gods as turned being that the game
-   * hasn't started yet
-   */
+  /**
+  * @method turn0 displays all of the gods as turned being that the game
+  * hasn't started yet
+  */
   turn0() {
     this.sources = this.titansService.turn0(this.numberOfPlayers).map(god => god.src)
   }
@@ -86,10 +92,10 @@ export class CycladesTitansComponent implements OnInit {
     return this.stateService.saveState("titans", this.turns.getTurn(), this.sources, this.numberOfPlayers, this.titansService.gods)
   }
 
-   /**
-   * @method loadState loads turn, sources of gods currently in display,
-   * number of players and gods object
-   */
+  /**
+  * @method loadState loads turn, sources of gods currently in display,
+  * number of players and gods object
+  */
   loadState(): Promise<any> {
     return this.stateService.loadState().then(data => {
       this.turns.setTurn(+data.turn)

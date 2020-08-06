@@ -25,9 +25,15 @@ export class CycladesClassicComponent implements OnInit {
   constructor(private classicService: ClassicService, private animationCtrl: AnimationController, public turns: TurnService,
     private route: ActivatedRoute, private stateService: StateService) { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  ionViewDidEnter() {
     this.numberOfPlayers = +this.route.snapshot.paramMap.get("numberOfPlayers")
-    this.turn0()
+    if (this.numberOfPlayers == -1) {
+      this.loadState()
+    } else {
+      this.turn0()
+    }
   }
 
   /**

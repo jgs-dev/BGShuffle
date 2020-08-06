@@ -26,10 +26,14 @@
           <ion-button [disabled]="!numberOfPlayers" shape="round" expand="full"
             routerLink="/cyclades-titans/{{numberOfPlayers}}">Titans</ion-button>
         </ion-col>
-
       </ion-row>
-
     </ion-grid>
   </ion-list>
+
+  <ion-list *ngIf="gameSavedButtonRouter">
+    <ion-title>Game Saved</ion-title>
+    <ion-button shape="round" expand="full" [routerLink]="gameSavedButtonRouter">Continue Game</ion-button>
+  </ion-list>
+
 
 </ion-content>
