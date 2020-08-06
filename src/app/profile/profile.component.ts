@@ -13,7 +13,8 @@ export class ProfileComponent implements OnInit {
   constructor(private modalCtrl: ModalController, private profileService: ProfileService) { }
 
   /**
-   * @method ngOnInit calls all data saved, ready to be displayed
+   * @method ngOnInit calls all data saved from profile service, ready to be displayed
+   * (with the variables in the service)
    */
   ngOnInit() {
     this.profileService.loadAllData()
