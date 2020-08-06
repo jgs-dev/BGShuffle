@@ -3,6 +3,13 @@ import { ShuffleService } from './shuffle.service';
 import { GODSCLASSIC, TURNED } from "./../../gods"
 import { God } from "./../../god"
 import { TurnService } from './turn.service';
+import { ProfileService } from '../profile.service';
+import { StorageService } from '../storage.service';
+
+/**
+ * @constant DATA key to save/get the total turns played in classical
+ */
+const KEY = "cycladesClassicalTurns"
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +17,37 @@ import { TurnService } from './turn.service';
 export class ClassicService {
 
   gods: God[] = GODSCLASSIC
-  constructor(private shuffleService: ShuffleService, private turns: TurnService) { }
+  constructor(private shuffleService: ShuffleService, private turns: TurnService, private storageService: StorageService) { }
+
+  /**
+   * @method saveTurns add the turns played into the database, if it never has been
+   * defined, defines it 
+   * @param turns turns recently played by the player
+   */
+  saveTurns(turns: number) {
+    return this.storageService.getData(KEY).then(value => {
+      if (value) {
+        this.storageService.updateData(KEY, turns + value)
+      } else {
+        this.storageService.addData(KEY, turns)
+      }
+    })
+  }
+
+  /**
+   * @method loadData loads the ammount of turns played in classical mode
+   */
+  loadData(): Promise<number> {
+    return this.storageService.getData(KEY).then((value) => {
+      
+      if(value){
+        return +value
+      }else{
+        return 0
+      }
+      
+    })
+  }
 
   /**
    * @method turn0 returns an array of turned god to have a display for the player before

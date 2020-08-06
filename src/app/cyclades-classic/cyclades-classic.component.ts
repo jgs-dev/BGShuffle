@@ -55,6 +55,7 @@ export class CycladesClassicComponent implements OnInit {
   }
 
   ionViewDidLeave() {
+    
     this.turns.reset()
   }
 }

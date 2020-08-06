@@ -3,14 +3,47 @@ import { God } from "./../../god"
 import { GODSTITANS, TURNED } from "./../../gods"
 import { ShuffleService } from './shuffle.service';
 import { TurnService } from './turn.service';
+import { StorageService } from '../storage.service';
 
+/**
+ * @constant KEY key to save/load the turns played in titans mode
+ */
+const KEY = "cycladesTitansTurns"
 @Injectable({
   providedIn: 'root'
 })
 export class TitansService {
 
   gods: God[] = GODSTITANS
-  constructor(private shuffleService: ShuffleService, private turns: TurnService) { }
+  constructor(private shuffleService: ShuffleService, private turns: TurnService, private storageService: StorageService) { }
+
+  /**
+     * @method saveTurns add the turns played into the database, if it never has been
+     * defined, defines it 
+     * @param turns turns recently played by the player
+     */
+  saveTurns(turns: number) {
+    return this.storageService.getData(KEY).then(value => {
+      if (value) {
+        this.storageService.updateData(KEY, turns + value)
+      } else {
+        this.storageService.addData(KEY, turns)
+      }
+    })
+  }
+
+  /**
+   * @method loadData loads the ammount of turns played in titans mode
+   */
+  loadData(): Promise<number> {
+    return this.storageService.getData(KEY).then((value) => {
+      if (value) {
+        return +value
+      } else {
+        return 0
+      }
+    })
+  }
 
   /**
    * @method turn0 returns an array of turned god to have a display for the player before

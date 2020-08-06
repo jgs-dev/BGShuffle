@@ -1,10 +1,17 @@
 <ion-header>
     <ion-toolbar>
+        <ion-buttons slot="primary">
+            <ion-button (click)="showProfileModal()">
+                <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
         <ion-title>BGShuffle</ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen class="components-background">
+
     <ion-list>
         <ion-img src="./../../assets/img/cyclades-big-icon.png" routerLink="/cyclades"> </ion-img>
     </ion-list>
