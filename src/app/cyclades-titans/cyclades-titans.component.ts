@@ -69,7 +69,6 @@ export class CycladesTitansComponent implements OnInit {
    * to zero
    */
   ionViewDidLeave() {
-    this.titansService.saveTurns(this.turns.getTurn())
     this.turns.reset()
   }
 

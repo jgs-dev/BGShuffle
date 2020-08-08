@@ -19,12 +19,12 @@
       <ion-row>
         <ion-col>
           <ion-button [disabled]="!numberOfPlayers" shape="round" expand="full"
-            routerLink="/cyclades-classic/{{numberOfPlayers}}">Classic
+             (click)="newGameClassic()">Classic
           </ion-button>
         </ion-col>
         <ion-col>
           <ion-button [disabled]="!numberOfPlayers" shape="round" expand="full"
-            routerLink="/cyclades-titans/{{numberOfPlayers}}">Titans</ion-button>
+           (click)="newGameTitans()" >Titans</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
